@@ -45,12 +45,38 @@ class DbViewer{
     }
 
     // ADD A DEPARTMENT
-    createDepartment(department){
+    createDepartment(answer){
         return this.connection.promise().query(
-            "INSERT INTO department SET ?", department
+            "INSERT INTO department SET ?",
+            { name: answer.department }
         );
 
     }
+
+    // ADD A NEW ROLE
+    createRole(answer){
+        return this.connection.promise().query(
+            "INSERT INTO role SET ?",
+            {title: answer.role,
+            salary: answer.salary,
+            department_id: answer.department_id,
+            }
+        );
+    }
+
+    // ADD A NEW EMPLOYEE
+    createEmployee(answer){
+        return this.connection.promise().query(
+            "INSERT INTO employee SET ?",
+            {first_name: answer.first,
+            last_name: answer.last,
+            role_id: answer.role_id,
+            manager_id: answer.manager_id
+            }
+        )
+    }
+
+
 }
 
 const employeeDb = new DbViewer(db);
