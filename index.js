@@ -127,44 +127,44 @@ function addRole() {
     })
 }
 
-function addEmployee() {
-    inquirer
-    .prompt([
-      {
-        type: "input",
-        name: "first",
-        message: "Please enter the Employees first name",
-      },
-      {
-        type: "input",
-        name: "last",
-        message: "Please enter the Employees last name",
-      },
-      {
-        type: "list",
-        name: "role_id",
-        message: "Select the the employees role id",
-        choices: ["1", "2", "3", "4"]
-      },
-      {
-        type: "list",
-        name: "manager_id",
-        message: "Select the the employees manager id",
-        choices: ["1", "2", "3", "4"]
-      },
-    ])
-    .then((answers) => {
-      let newEmployee = {
-        first: answers.first,
-        last: answers.last,
-        role_id: answers.role_id,
-        manager_id: answers.manager_id
-      }
-      employeeDb.createEmployee(newEmployee)
-      .then(()=> console.log(`Created new Employee in your database`))
-      .then (()=> askQuestions() )
-    })
-}
+// function addEmployee() {
+//     inquirer
+//     .prompt([
+//       {
+//         type: "input",
+//         name: "first",
+//         message: "Please enter the Employees first name",
+//       },
+//       {
+//         type: "input",
+//         name: "last",
+//         message: "Please enter the Employees last name",
+//       },
+//       {
+//         type: "list",
+//         name: "role_id",
+//         message: "Select the the employees role id",
+//         choices: ["1", "2", "3", "4"]
+//       },
+//       {
+//         type: "list",
+//         name: "manager_id",
+//         message: "Select the the employees manager id",
+//         choices: ["1", "2", "3", "4"]
+//       },
+//     ])
+//     .then((answers) => {
+//       let newEmployee = {
+//         first: answers.first,
+//         last: answers.last,
+//         role_id: answers.role_id,
+//         manager_id: answers.manager_id
+//       }
+//       employeeDb.createEmployee(newEmployee)
+//       .then(()=> console.log(`Created new Employee in your database`))
+//       .then (()=> askQuestions() )
+//     })
+// }
 
 function updateEmployee() {}
 
