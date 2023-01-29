@@ -45,9 +45,9 @@ class DbViewer{
     }
 
     // ADD A DEPARTMENT
-    createDepartment(){
+    createDepartment(department){
         return this.connection.promise().query(
-            "INSERT INTO department"
+            "INSERT INTO department SET ?", department
         );
 
     }
